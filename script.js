@@ -1,21 +1,26 @@
 // Write your JavaScript code here!
 
-import { validateInput, formSubmission, addDestinationInfo, pickPlanet, myFetch } from "./scriptHelper";
+// const { formSubmission, validateInput } = require("./scriptHelper");
 
 window.addEventListener("load", function() {
-
-    let form = this.document.querySelector("form");
+    let form = document.querySelector("form");
     form.addEventListener("submit", function(event){
+        let document = window.document;
         let userPilotName = document.querySelector("input[name=pilotName]");
-        let userCoPilotName = document.querySelector("input[name=coPilotName]");
+        let userCoPilotName = document.querySelector("input[name=copilotName]");
         let userFuelLevel = document.querySelector("input[name=fuelLevel]");
         let userCargoMass = document.querySelector("input[name=cargoMass]");
-        if (userPilotName === "" || userCoPilotName === "" || userFuelLevel === "" || userCargoMass === ""){
+
+
+        if (userPilotName.value === "" || userCoPilotName.value === "" || userFuelLevel.value === "" || userCargoMass.value === ""){
             alert("All fields are required!");
             event.preventDefault();
+        } else {
+            console.log("working")
+            formSubmission(document, userPilotName, userCoPilotName, userFuelLevel, userCargoMass)
+            event.preventDefault();
         };
-        validateInput;
-        formSubmission;
+    });
 
    let listedPlanets;
    // Set listedPlanetsResponse equal to the value returned by calling myFetch()
