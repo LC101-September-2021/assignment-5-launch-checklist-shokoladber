@@ -16,7 +16,6 @@ window.addEventListener("load", function() {
             alert("All fields are required!");
             event.preventDefault();
         } else {
-            console.log("working")
             formSubmission(document, userPilotName, userCoPilotName, userFuelLevel, userCargoMass)
             event.preventDefault();
         };
