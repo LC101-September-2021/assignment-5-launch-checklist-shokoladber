@@ -46,17 +46,21 @@ function formSubmission(document, pilot, copilot, fuelLevel, cargoLevel) {
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
     // Here is the HTML formatting for our mission target div.
-    /*
-                 <h2>Mission Destination</h2>
-                 <ol>
-                     <li>Name: ${name}</li>
-                     <li>Diameter: ${diameter}</li>
-                     <li>Star: ${star}</li>
-                     <li>Distance from Earth: ${distance}</li>
-                     <li>Number of Moons: ${moons}</li>
-                 </ol>
-                 <img src="imageUrl">
-    */
+    console.log(document.getElementById("missionTarget"))
+    let missionTarget = document.getElementById("missionTarget")
+    missionTarget.innerHTML = `<h2>Mission Destination</h2>
+    <ol>
+        <li>Name: ${name}</li>
+        <li>Diameter: ${diameter}</li>
+        <li>Star: ${star}</li>
+        <li>Distance from Earth: ${distance}</li>
+        <li>Number of Moons: ${moons}</li>
+    </ol>
+    <img src="${imageUrl}">
+    `;
+    
+    
+                 
  }
 
 async function myFetch() {
@@ -64,14 +68,14 @@ async function myFetch() {
 
     planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
         console.log(response)     
-        return response.json
+        return response.json();
     });
     console.log(planetsReturned);
     return planetsReturned;
 }
 
 function pickPlanet(planets) {
-    planet = planets[Math.round(Math.random()*planets.length)];
+    let planet = planets[Math.floor(Math.random()*planets.length)];
     return planet;
 }
 

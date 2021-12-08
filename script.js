@@ -29,8 +29,12 @@ window.addEventListener("load", function() {
    }).then(function () {
        console.log(listedPlanets);
        // Below this comment call the appropriate helper functions to pick a planet fom the list of planets and add that information to your destination.
-       pickPlanet; 
-       addDestinationInfo;
+       let planetPicked = pickPlanet(listedPlanets);
+       console.log(planetPicked);
+       
+        console.log(planetPicked.name);
+
+       addDestinationInfo(document, planetPicked.name, planetPicked.diameter, planetPicked.star, planetPicked.distance, planetPicked.moons, planetPicked.image);
     })
    
 });
